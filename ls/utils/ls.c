@@ -9,7 +9,7 @@
  *
  * Sugestão: para entender sua definição consulte o cabeçalho citado acima.
  */
-static void list_directory(const char *dirname)
+static void list_directory(const char *dirname, int show_attributes)
 {
     struct dirent *dir; // Um ponteiro do tipo struct dirent
 
@@ -27,14 +27,28 @@ static void list_directory(const char *dirname)
          */
         while ((dir = readdir(d)) != NULL)
         {
-            printf("%s\n", dir->d_name);
+            if (show_attributes)
+            {
+                switch (dir->d_type)
+                {
+                case DT_DIR:
+                    printf("Diretório: \t\t\t%s\n", dir->d_name);
+                    break;
+                default:
+                    printf("Arquivo: \t\t\t%s\n", dir->d_name);
+                }
+            }
+            else
+            {
+                printf("%s\n", dir->d_name);
+            }
         }
 
         closedir(d); // Sempre feche recursos ou arquivos abertos após terminar de usar.
     }
     else
     {
-        fprintf (stderr, "Cannot open %s (%s)\n", dirname, strerror (errno));
+        fprintf(stderr, "Cannot open %s (%s)\n", dirname, strerror(errno));
         exit(EXIT_FAILURE);
     }
 }

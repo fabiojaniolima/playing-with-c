@@ -13,4 +13,4 @@
  * - Não possui retorno
  * - Define uma função estática 
  */
-static void list_directory (const char *dirname); // Protótipo de função
+static void list_directory (const char *dirname, int show_attributes); // Protótipo de função
