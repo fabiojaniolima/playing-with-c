@@ -43,10 +43,12 @@ O binário gerado precisa receber permissão de execução, recomendo:
 chmod 755 ./my-ls
 ```
 
-Você pode chamar o binário sem argumento, ou informar o endereço de um diretório:
+Sintaxe:
 ```
-./my-ls <opcional: caminho de um diretório>
+./my-ls [-opção|--opções] [diretório]
 ```
+
+> Chame o binário passando a opção --help para acessar o resumo de ajuda.
 
 ## Licença:
 
