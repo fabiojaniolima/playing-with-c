@@ -31,9 +31,10 @@ cd ./playing-with-c/ls
 
 Para compilar:
 ```
-gcc -o my-ls main.c
+gcc -std=c11 -o my-ls main.c
 ```
 - `gcc`: compilador utilizado, você pode utilizar outro
+- `-std`: determina o padrão ou especificação a ser utilizada
 - `-o`: arquivo para onde a output do compilador será "jogado"
 - `my-ls`: arquivo de saída, ou seja, binário gerado após compilação
 - `main.c`: arquivo de entrada ou ponto de entrada
